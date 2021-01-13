@@ -1,2 +1,0 @@
-4.In the Binary Search algorithm, it is suggested to calculate the mid as beg + (end - beg) / 2 instead of (beg + end) / 2. Why is it so?
-ans:-If value of beg or end or both is INT_MAX, it will cause integer overflow if we calculate mid as (beg + end) / 2. However, it will not cause such error in the other way round.
