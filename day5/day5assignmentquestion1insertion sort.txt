@@ -1,0 +1,18 @@
+
+Question 1
+1. Write the function for insertion sort.
+ans:-
+void insertion_sort(int arr[])
+{
+	for(int i=1; i<arr.length; i++)
+	{
+		int pos=i-1;
+		while(pos>=0	&& arr[pos]>arr[i])
+		{
+			int temp=arr[pos];
+			arr[pos]=arr[i];
+			arr[i]=temp;
+			pos--;
+		}
+}
+} 
