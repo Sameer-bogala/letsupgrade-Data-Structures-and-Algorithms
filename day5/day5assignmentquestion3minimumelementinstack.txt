@@ -1,1 +1,21 @@
+Question 2 
+Write a function to find the minimum element in the stack.
+ans:-
+void minimum()
+{
+	if(top==-1)
+		printf(“Not possible”);
+	else
+	{
+		int min=pop();
+		for(int i=top; i>=0; i--)
+		{
+			int temp=pop();
+			if(min>temp)
+				min=temp;
+		}
+		printf(“%d”, min);
+	}
+}
+
 
