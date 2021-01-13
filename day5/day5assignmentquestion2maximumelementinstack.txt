@@ -2,19 +2,53 @@
 Question 2 
 Write a function to find the maximum element in the stack.
 ans:-
-void maximum()
-{
-	if(top==-1)
-		printf(“Not possible”);
-	else
-	{
-		int max=pop();
-		for(int i=top; i>=0; i--)
-		{
-			int temp=pop();
-			if(max<temp)
-				max=temp;
-		}
-		printf(“%d”, max);
-	}
-}
+#include <bits/stdc++.h> 
+using namespace std; 
+
+class StackWithMax 
+{ 
+
+	stack<int> mainStack; 
+
+
+	stack<int> trackStack; 
+
+public: 
+	void push(int x) 
+	{ 
+		mainStack.push(x); 
+		if (mainStack.size() == 1) 
+		{ 
+			trackStack.push(x); 
+			return; 
+		} 
+
+		if (x > trackStack.top()) 
+			trackStack.push(x); 
+		else
+			trackStack.push(trackStack.top()); 
+	} 
+
+	int getMax() 
+	{ 
+		return trackStack.top(); 
+	} 
+
+	int pop() 
+	{ 
+		mainStack.pop(); 
+		trackStack.pop(); 
+	} 
+}; 
+
+int main() 
+{ 
+	StackWithMax s; 
+	s.push(20000); 
+	cout << s.getMax() << endl; 
+	s.push(10); 
+	cout << s.getMax() << endl; 
+	s.push(50); 
+	cout << s.getMax() << endl; 
+	return 0; 
+} 
